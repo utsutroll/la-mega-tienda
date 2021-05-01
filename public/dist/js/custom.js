@@ -191,3 +191,5 @@ $(function () {
         $(this).addClass("working")
     })
 });
+
+/* Carrusel */

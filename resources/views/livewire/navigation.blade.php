@@ -102,8 +102,8 @@
   
                 
             @else
-            <a href="{{ route('login') }}" class="text-gray-800 hover:bg-red-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
-            <a href="{{ route('register') }}" class="text-gray-800 hover:bg-red-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Registrase</a>    
+            <a href="{{ route('login') }}" class="text-gray-800 hover:bg-red-600 hover:text-white hidden sm:block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
+            <a href="{{ route('register') }}" class="text-gray-800 hover:bg-red-600 hover:text-white hidden sm:block px-3 py-2 rounded-md text-base font-medium">Registrase</a>    
             
           @endauth
         </div>
@@ -113,6 +113,8 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away=" open = false ">
       <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="{{ route('login') }}" class="text-gray-800 hover:bg-red-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Iniciar Sesión</a>
+            <a href="{{ route('register') }}" class="text-gray-800 hover:bg-red-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Registrase</a>
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
   {{--       <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a> --}}

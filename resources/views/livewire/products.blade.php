@@ -3,8 +3,8 @@
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="page-titles d-flex justify-content-center">
-        <div class="form-material">
-            <div class="input-group mb3">
+        <div class="form-material row">
+            <div class="col-10 ml-3 input-group">
                 <div class="input-group-prepend">
                     <button type="button" class="btn btn-white dropdown-toggle mr-1 border-secondary border-top-0 border-left-0 border-right-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="ti-filter"></i> Filtrar por
@@ -36,7 +36,7 @@
                     <div class="card-body">    
                         <div class="img-pro">    
                             <a href="/product-detail/{{$p->id}}"> 
-                                <img class="img-fluid image" src="{{Storage::url($p->image->url)}}">
+                                <img loading="lazy" class="img-fluid image" src="{{Storage::url($p->image->url)}}">
                             </a>
                             <ul class="overlay">
                                 @foreach ($p->tags as $t)

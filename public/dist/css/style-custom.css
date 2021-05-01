@@ -142,3 +142,59 @@
     width: 100%;
     left: 75%;
 }
+
+/*CARRUSEL*/
+
+.carousel__contenedor{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.carousel__anterior {
+    position:absolute;
+    left:25px;
+    z-index:1;
+    top:40%;
+    margin-top:-9px;
+    border: none;
+    color: #555;
+    opacity: 20%;
+}
+ 
+.carousel__siguiente {
+    position:absolute;
+    right:10px;
+    z-index:1;
+    top:40%;
+    margin-top:-9px;
+    border: none;
+    color: #555;
+    opacity: 20%;    
+}
+
+.carousel__lista{
+    overflow: hidden;
+}
+
+.carousel__elemento{
+    text-align: center;
+}
+
+.carousel__indicadores .glider-dot{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: #555;
+    opacity: .2;
+    border-radius: 0;
+}
+
+.carousel__indicadores .glider-dot:hover{
+    opacity: .5;
+}
+
+.carousel__indicadores .glider-dot.active{
+    opacity: 1;
+}

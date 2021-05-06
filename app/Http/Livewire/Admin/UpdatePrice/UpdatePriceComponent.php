@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\UpdatePrice;
 use App\Models\Product;
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithPagination;
 use BD;
 
 class UpdatePriceComponent extends Component
@@ -13,14 +14,22 @@ class UpdatePriceComponent extends Component
     public $search ='';
     public $price;
     public $product_id;
-     
+    
+    use WithPagination;
+
+    protected $paginationTheme = "bootstrap";
+
+    public function updatingSearch(){
+            $this->resetPage();
+    }
+
     public function render()
     {
         $categories = Category::all();
 
         $products = Product::where('product', 'LIKE', "%{$this->search}%")
                             ->where('category_id', $this->category)
-                            ->get();
+                            ->paginate(10);
 
                         
 
@@ -32,7 +41,7 @@ class UpdatePriceComponent extends Component
         $product = Product::find($id);
 
         $this->validate([
-            'price' => "required|",  
+            'price' => "required",  
         ]);
 
         $product->update(['price' => $this->price]);

@@ -1,3 +1,3 @@
-<footer class="footer ml-0">
+<footer class="footer">
     © 2021 La Mega Tienda Turén by Space DigitalSolutions C.A
 </footer>

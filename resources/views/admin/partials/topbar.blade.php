@@ -5,19 +5,23 @@
         <!-- ============================================================== -->
         <div class="navbar-header">
             <a class="navbar-brand" href="{{url('/')}}">
-                <!-- Logo icon --><b>
+                <!-- Logo icon -->
+                <b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="{{asset('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
+                    <img src="{{asset('assets/images/logo/logo-icon.svg')}}" alt="homepage" class="dark-logo" />
                     <!-- Light Logo icon -->
-                    <img src="{{asset('assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" />
+                    <img src="{{asset('assets/images/logo/logo-light-icon1.svg')}}" alt="homepage" class="light-logo" />
                 </b>
                 <!--End Logo icon -->
-                <!-- Logo text --><span>
-                 <!-- dark Logo text -->
-                 <img src="{{asset('assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
-                 <!-- Light Logo text -->    
-                 <img src="{{asset('assets/images/logo-light-text.png')}}" class="light-logo" alt="homepage" /></span> </a>
+                <!-- Logo text -->
+                <span>
+                    <!-- dark Logo text -->
+                    <img src="{{asset('assets/images/logo/logo-text.svg')}}" alt="homepage" class="dark-logo" />
+                    <!-- Light Logo text -->    
+                    <img src="{{asset('assets/images/logo/logo-light-text1.svg')}}" class="light-logo" alt="homepage" />
+                </span> 
+             </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
@@ -46,6 +50,11 @@
                 <!-- ============================================================== -->
                 <!-- Comment -->
                 <!-- ============================================================== -->
+                <li class="nav-item"> 
+                    <a class="nav-link waves-effect waves-dark" title="Actualizar Precio del Dolar" aria-expanded="false" data-toggle="modal" data-target="#modalUpdatePriceDolar">
+                        <i class="fa fa-dollar"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-bell"></i>
                         <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>

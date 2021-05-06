@@ -2,7 +2,7 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <div class="page-titles d-flex justify-content-center">
+    <div class="p-3 mb-3 bg-white d-flex justify-content-center">
         <div class="form-material row">
             <div class="col-10 ml-3 input-group">
                 <div class="input-group-prepend">

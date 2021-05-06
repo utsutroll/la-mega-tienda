@@ -33,7 +33,7 @@ class Product extends Model
     }
     
     public function entry(){
-        return $this->belongsToMany(Entry::class)->using(Product_Entry::class)->withPivot('id','quantity', 'price');
+        return $this->belongsToMany(Entry::class)->using(Product_Entry::class)->withPivot('id','quantity');
     }
 
     //relacion 1 a 1 polimorfica

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url('/assets/images/favicon.svg')}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -68,6 +68,8 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
+            @livewire('admin.update-price.update-price-component') 
+            @livewire('dollar-rate') 
             <!-- ============================================================== -->
             <!-- Right sidebar -->
             <!-- ============================================================== -->
@@ -112,6 +114,22 @@
     <!-- Popup message jquery -->
     <script src="{{url('/assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
     @stack('scripts')
+    <script>
+        window.livewire.on('dollarEdited',()=>{
+            $('#modalUpdatePriceDolar').modal('hide');
+
+            $.toast({
+                heading: 'Notificación',
+                text: 'La Tasa del Dolar se actualizó con éxito.',
+                position: 'top-right',
+                loaderBg:'#ff6849',
+                icon: 'success',
+                hideAfter: 3500, 
+                stack: 6
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

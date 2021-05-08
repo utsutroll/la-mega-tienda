@@ -16,6 +16,6 @@ class Image extends Model
     //relacion polimorfica
 
     public function imageable(){
-        return $this->morphTo(Post::class);
+        return $this->morphTo(Product::class);
     }
 }

@@ -9,29 +9,21 @@
 
 <hr>
 <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
         <div class="form-group">
             
             {!! Form::label('product', 'Producto') !!}
-            {!! Form::select('product', $product, null, ['class' => 'form-control']) !!} 
+            {!! Form::select('product', $product, null, ['class' => 'form-control', 'style' => 'width: 100%;' ]) !!} 
 
         </div>
     </div>
         
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
         <div class="form-group">
 
             {!! Form::label('pquantity', 'Cantidad') !!}
             {!! Form::number('pquantity', null, ['class' => 'form-control', 'min' => '1', 'placeholder' => 'Ingrese la cantidad']) !!} 
             
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="form-group">
-            
-            {!! Form::label('pprice', 'Costo por Unidad') !!}
-            {!! Form::number('pprice', null, ['class' => 'form-control', 'min' => '1', 'placeholder' => 'Ingrese costo unitario']) !!} 
-
         </div>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -49,18 +41,11 @@
                 <th>Opciones</th>
                 <th colspan="2">Producto</th>
                 <th>Cantidad</th>
-                <th>Costo por Unidad</th>
-                <th>Subtotal</th>
             </thead>
             <tfoot>
                 <tr>
-                    <th  colspan="5"><p align="right">TOTAL:</p></th>
-                    <th><p align="right"><span id="total">$ 0.00</span></p></th>
+
                 </tr>
-                <tr>
-                </tr>
-                <tr>
-                </tr>  
             </tfoot>
             <tbody>
                 

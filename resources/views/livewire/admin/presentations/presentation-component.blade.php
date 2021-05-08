@@ -12,7 +12,7 @@
                     <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Menú Principal</a></li>
                     <li class="breadcrumb-item active">Listado de Presentaciones</li>
                 </ol>
-                <button type="button" class="btn btn-success btn-md float-right m-l-15" data-toggle="modal" data-target="#create-modal" wire:click='create'><i class="fa fa-plus-circle"></i> Nueva de Presentación</button>
+                <button type="button" class="btn btn-success btn-md float-right m-l-15" data-toggle="modal" data-target="#create-modal" wire:click='create'><i class="fa fa-plus-circle"></i> Nueva Presentación</button>
             </div>
 
         </div>

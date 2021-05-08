@@ -34,7 +34,7 @@
         <div class="form-group">
             
             {!! Form::label('presentation_id', 'Presentación') !!}
-            {!! Form::select('presentation_id', $presents, 'Seleccione', ['class' => 'form-control']) !!} 
+            {!! Form::select('presentation_id', $presents, null, ['class' => 'form-control']) !!} 
 
 
             @error('presentation_id')
@@ -60,11 +60,23 @@
                 <small class="text-danger">{{$message}}</small>   
             @enderror
         </div>
-
+        @isset($product->image)
+            <div class="form-group">
+                <label for="">Imagen que se mostrará del Producto</label>
+                <div class="image-wrapper d-flex justify-content-center">
+                    <img id="picture" src="{{Storage::url($product->image->url)}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="file" name="file" id="file" class="form-control"/>
+            </div>
+            
+        @else
         <div class="form-group">
             {!! Form::label('file', 'Imagen que se mostrará del Producto') !!}
-            {!! Form::file('file', ['class' => 'dropify', 'accept' => 'image/*']) !!}
-        
+            {!! Form::file('file', ['class' => 'dropify', 'accept' => 'image/*' ]) !!}
+            @endisset
+
             @error('file')
                 <small class="text-danger">{{$message}}</small>   
             @enderror

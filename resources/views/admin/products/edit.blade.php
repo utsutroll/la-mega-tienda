@@ -56,6 +56,20 @@
     <link href="{{asset('assets/node_modules/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/node_modules/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/node_modules/dropify/dist/css/dropify.min.css')}}" rel="stylesheet">
+
+    <style>
+        .imagen-wrapper{
+            position: relative;
+            padding-bottom: 56.25%
+        }
+
+        .image-wrapper img{
+
+            object-fit: cover;
+            width: 50%;
+            height: 50%;
+        }
+    </style>
 @endpush
 
 @push('scripts')
@@ -95,6 +109,19 @@
     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
     $('.js-switch').each(function() {
             new Switchery($(this)[0], $(this).data());
-    });                      
+    }); 
+
+    document.getElementById("file").addEventListener('change', cambiarImagen);
+
+    function cambiarImagen(event) {
+        var file = event.target.files[0];
+
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById("picture").setAttribute('src', event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    }                     
     </script>
 @endpush    

@@ -16,6 +16,7 @@ class ProductController extends Controller
 
     public function index()
     {
+
         return view('admin.products.index');
     }
 
@@ -109,7 +110,7 @@ class ProductController extends Controller
             'presentation_id' => 'required',    
             'tags' => 'required',    
             'details' => 'required',
-            'file' => 'required|image'
+            'file' => 'image'
 
         ]);
 

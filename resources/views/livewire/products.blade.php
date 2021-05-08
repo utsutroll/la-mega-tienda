@@ -50,15 +50,15 @@
                                     <a href="javascript:void(0)" class="bg-success"><i class="fa fa-heart"></i></a>
                                 </li>
                                 <li class="bt"> 
-                                    <a href="javascript:void(0)" class="bg-success"><i class="ti-shopping-cart"></i></a>
+                                    <a href="javascript:void(0)" class="bg-success" wire:click.prevent="store({{$p->id}}, '{{$p->product}}', {{$p->price}})"><i class="ti-shopping-cart"></i></a>
                                 </li>
                             </ul>
                         </div>    
                         
                         <div class="product-text">
                             <span class="pro-price bg-dark">
-                                <div class="tooltip-ex"><strong>1$</strong><br>
-                                    <span class="tooltip-ex-text tooltip-ex-top">@foreach ($dollar as $d){{$d->price*1}}@endforeach Bs.F</span>
+                                <div class="tooltip-ex"><strong>{{$p->price}}$</strong><br>
+                                    <span class="tooltip-ex-text tooltip-ex-top">@foreach ($dollar as $d){{$d->price*$p->price}}@endforeach Bs.F</span>
                                 </div>
                                     
                             </span>
@@ -69,5 +69,5 @@
             </div>
             @endforeach
         </div>
-    </div>
+    </div> 
 </div>

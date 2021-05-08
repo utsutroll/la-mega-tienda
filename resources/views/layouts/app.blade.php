@@ -24,6 +24,31 @@
         <link href="{{url('dist/pages/ecommerce.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="{{url('dist/css/style-custom.css')}}">
 
+        <style>
+            .notify-m{
+                top: -10px;
+                right: -1px;
+                color: red;
+                position: relative;
+            }
+            .notify-m .heartbit-m{
+                position: absolute;
+                top: -2px;
+                right: -7px;
+                height: 25px;
+                width: 25px;
+                z-index: 10;
+                border: 5px solid #e46a76;
+                border-radius: 70px;
+                -moz-animation: heartbit 1s ease-out;
+                -moz-animation-iteration-count: infinite;
+                -o-animation: heartbit 1s ease-out;
+                -o-animation-iteration-count: infinite;
+                -webkit-animation: heartbit 1s ease-out;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+            }
+        </style>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
@@ -34,7 +59,6 @@
             
             <!-- Page Content -->
             <main>
-                
                 {{ $slot }}
             </main>
         </div>
@@ -52,5 +76,19 @@
         <script src="{{asset('assets/node_modules/glider.js-master/glider.min.js')}}" type="text/javascript"></script>  
         <script src="{{asset('/dist/js/carrusel-app.js')}}" type="text/javascript"></script>  
         
+        <script>
+            window.livewire.on('productAdded',()=>{
+
+                $.toast({
+                    heading: 'Notificación',
+                    text: 'El Producto se agregó al carrito con éxito.',
+                    position: 'top-right',
+                    loaderBg:'#ff6849',
+                    icon: 'info',
+                    hideAfter: 3500, 
+                    stack: 6
+                });
+            });
+        </script> 
     </body>
 </html>

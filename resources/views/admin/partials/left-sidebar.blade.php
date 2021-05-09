@@ -59,6 +59,19 @@
                         <li><a href="#">Salida de Producto</a></li>
                     </ul>
                 </li>
+                <li class="nav-small-cap">--- Actualizar $</li>
+                <li> 
+                    <a class="waves-effect waves-dark" aria-expanded="false" data-toggle="modal" data-target="#modalUpdatePrice">
+                        <i class="fa fa-refresh"></i>
+                        <span class="hide-menu">Precio de Producto</span>
+                    </a>
+                </li>
+                <li> 
+                    <a class="waves-effect waves-dark" aria-expanded="false" data-toggle="modal" data-target="#modalUpdatePriceDolar">
+                        <i class="fa fa-refresh"></i>
+                        <span class="hide-menu">Tasa del Dolar</span>
+                    </a>
+                </li>
                 <li class="nav-small-cap">--- Bancos & Formas de Pago</li>
                 <li id="LiBank"> 
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa fa-bank"></i><span class="hide-menu">Bancos & Billeteras</span></a>

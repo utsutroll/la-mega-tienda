@@ -15,6 +15,6 @@ class Entry extends Model
 
 
     public function products(){
-        return $this->belongsToMany(Product::class)->using(Product_Entry::class)->withPivot('id','quantity', 'price');
+        return $this->belongsToMany(Product::class)->using(Product_Entry::class)->withPivot('id','quantity');
     }
 }

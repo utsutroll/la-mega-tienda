@@ -33,8 +33,8 @@
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <!-- Logo-->  
           <a href="/" class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="{{asset('assets/images/logo-icon.png')}}" alt="LaMegaTiendaTuren">
-            <img class="hidden lg:block h-8 w-auto" src="{{asset('assets/images/logo-text.png')}}" alt="LaMegaTiendaTuren">
+            <img class="block lg:hidden h-10 w-auto" src="{{asset('assets/images/logo/logo-main.svg')}}" alt="LaMegaTiendaTuren">
+            <img class="hidden lg:block h-10 w-auto" src="{{asset('assets/images/logo/logo-main-text.svg')}}" alt="LaMegaTiendaTuren">
           </a>
   
           <!-- Menu Lg-->

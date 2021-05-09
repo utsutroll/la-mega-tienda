@@ -56,6 +56,7 @@
     <link href="{{asset('assets/node_modules/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/node_modules/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/node_modules/dropify/dist/css/dropify.min.css')}}" rel="stylesheet">
+
 @endpush
 
 @push('scripts')
@@ -71,6 +72,8 @@
     $('#AEntry').addClass("active");
  
     $("#product").select2({
+        width: 'resolve',
+        height: 'resolve',
         placeholder: 'Seleccione'
     });
 
@@ -100,8 +103,6 @@
             });
         });
         var cont=0;
-        total=0;
-        subtotal=[];
         $(".guardar").hide();
         $("#product").change(mostrarValores);
 
@@ -109,7 +110,6 @@
 
             datosArticulo=document.getElementById('product').value.split('_');
             $("#pquantity").val(datosArticulo[2]);
-            $("#pprice").val(datosArticulo[1]);
         }    
 
          function agregar(){
@@ -119,18 +119,13 @@
             product_id=datosArticulo[0];
             product=$("#product option:selected").text();
             cantidad=$("#pquantity").val();
-            costo=$("#pprice").val();
 
-            if(product_id!="" && cantidad!="" && cantidad>0 && costo>0 && costo!=""){
+            if(product_id!="" && cantidad!="" && cantidad>0 ){
 
-                subtotal[cont]=(cantidad*costo);
-                total=total+subtotal[cont];
 
-                var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-danger" onclick="eliminar('+cont+');">X</button></td><td colspan="2"><input type="hidden" name="product_id[]" value="'+product_id+'">'+product+'</td><td><input type="number" name="quantity[]" value="'+cantidad+'"></td><td><input type="number" name="price[]" value="'+parseFloat(costo).toFixed(2)+'"></td><td align="right">$ '+parseFloat(subtotal[cont]).toFixed(2)+'</td></tr>';
+                var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-danger" onclick="eliminar('+cont+');">X</button></td><td colspan="2"><input type="hidden" name="product_id[]" value="'+product_id+'">'+product+'</td><td><input type="number" name="quantity[]" value="'+cantidad+'"></td></tr>';
                 cont++;
                 limpiar();
-                totales();
-                evaluar();
                 $('#detalles').append(fila);   
                 
             }else{
@@ -141,33 +136,10 @@
 
         function limpiar(){
             $("#pquantity").val("");
-            $("#pprice").val("");
         }  
 
-        function totales(){
-
-            $("#total").html("$ " + total.toFixed(2));
-
-
-        }
-
-        function evaluar(){
-
-            if(total>1){
-
-                $(".guardar").show();
-            }
-            else{
-
-                $(".guardar").hide();
-            }
-        }
-
         function eliminar(index){
-            total=total-subtotal[index];
-            $("#total").html("$ " + total);
             $("#fila" + index).remove();
-            evaluar();
         }         
     </script>
 @endpush    

@@ -82,11 +82,15 @@
                         </ul>
                         @endif
                     </div>
+<<<<<<< HEAD
                     <div class="tab-pane  p-20" id="import" role="tabpanel">
                     <p>
                     Click <a wire:click.prevent="export">aquí</a> para descargar en Exel los Productos
                     </p>
                     </div>  
+=======
+                    <div class="tab-pane  p-20" id="import" role="tabpanel">2</div>  
+>>>>>>> a4de67db9f1452e7a7c31e1e688ad45e2bb16625
                 </div>
                 </div>
             </div>

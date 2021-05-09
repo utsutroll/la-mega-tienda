@@ -12,7 +12,7 @@
                     <li class="breadcrumb-item"><a href="{{route('admin.home')}}">Menú Principal</a></li>
                     <li class="breadcrumb-item active">Listado de Productos</li>
                 </ol>
-                <a class="btn btn-success btn-md float-right m-l-15" href="{{route('admin.products.create')}}"><i class="fa fa-plus-circle"></i> Nueva de Producto</a> 
+                <a href="{{route('admin.products.create')}}" class="btn btn-success btn-md float-right m-l-15"><i class="fa fa-plus-circle"></i> Nuevo Producto</a> 
             </div>
 
         </div>

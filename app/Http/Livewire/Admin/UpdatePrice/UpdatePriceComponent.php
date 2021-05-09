@@ -6,10 +6,15 @@ use App\Models\Product;
 use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
+<<<<<<< HEAD
 use Maatwebsite\Excel\Facade\Excel;
 use BD;
 
 
+=======
+use BD;
+
+>>>>>>> a4de67db9f1452e7a7c31e1e688ad45e2bb16625
 class UpdatePriceComponent extends Component
 {
     public $category;
@@ -51,10 +56,13 @@ class UpdatePriceComponent extends Component
         $this->reset(['price']);
 
     }
+<<<<<<< HEAD
 
     public function export()
     {
         return Exel::download(new ProductsExport, 'product-list.xlsx');
     }
+=======
+>>>>>>> a4de67db9f1452e7a7c31e1e688ad45e2bb16625
 }
   

@@ -31,25 +31,25 @@
                             
                         <select id="medida" class="form-control" wire:model.defer="medida">
                             <option value="0">Seleccione</option>
-                            <option @if ($medida =="Kg") selected
+                            <option @if ($medida ="Kg") selected
                                 
                             @endif value="Kg">Kg</option>
-                            <option @if ($medida =="G") selected
+                            <option @if ($medida ="G") selected
                                 
                             @endif value="G">G</option>
-                            <option @if ($medida =="L") selected
+                            <option @if ($medida ="L") selected
                                 
                             @endif value="L">L</option>
-                            <option @if ($medida =="Ml") selected
+                            <option @if ($medida ="Ml") selected
                                 
                             @endif value="Ml">Ml</option>
-                            <option @if ($medida =="Cm³") selected
+                            <option @if ($medida ="Cm³") selected
                                 
                             @endif value="Cm³">Cm³</option>
-                            <option @if ($medida =="M") selected
+                            <option @if ($medida ="M") selected
                                 
                             @endif value="M">M</option>
-                            <option @if ($medida =="Cm") selected
+                            <option @if ($medida ="Cm") selected
                                 
                             @endif value="Cm">Cm</option>
                         </select>    

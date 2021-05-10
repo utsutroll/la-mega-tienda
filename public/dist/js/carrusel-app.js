@@ -27,8 +27,8 @@ new Glider(document.querySelector(".carousel__lista"), {
             // screens greater than >= 1024px
             breakpoint: 1024,
             settings: {
-                slidesToShow: "auto",
-                slidesToScroll: "auto",
+                slidesToShow: "4",
+                slidesToScroll: "4",
             },
         },
     ],

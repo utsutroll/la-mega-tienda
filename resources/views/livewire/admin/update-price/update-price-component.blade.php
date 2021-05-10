@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div wire:loading>
+                <div wire:loading wire:target="update">
                     <div class="loader">
                         <div class="loader__figure"></div>
                         <p class="loader__label">La Mega Tienda Turén</p>
@@ -19,7 +19,7 @@
                         <br><br><br><br><br><br><br>
                     </div>
                 </div>
-                <div wire:loading.remove>
+                <div wire:loading.remove wire:target="update">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs customtab" role="tablist">
                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#manual" role="tab"><span class="hidden-sm-up"><i class="ti-hand-open"></i></span> <span class="hidden-xs-down">Manual</span></a> </li>
@@ -82,17 +82,8 @@
                         </ul>
                         @endif
                     </div>
-<<<<<<< HEAD
-                    <div class="tab-pane  p-20" id="import" role="tabpanel">
-                    <p>
-                    Click <a wire:click.prevent="export">aquí</a> para descargar en Exel los Productos
-                    </p>
-                    </div>  
-=======
-                    <div class="tab-pane  p-20" id="import" role="tabpanel">2</div>  
->>>>>>> a4de67db9f1452e7a7c31e1e688ad45e2bb16625
                 </div>
-                </div>
+            </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

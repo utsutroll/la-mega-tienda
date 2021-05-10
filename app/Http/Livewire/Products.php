@@ -23,7 +23,8 @@ class Products extends Component
     protected $queryString = [
         'search' => ['except' => ''],
     ];
-    protected $listeners = ['render', 'render'];
+    
+    protected $listener = ['addCart' => 'render'];
 
     public function render()
     {
@@ -40,7 +41,6 @@ class Products extends Component
     public function store($product_id, $product_name, $product_price)
     {
         Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
-        $this->emit('productAdded');
-        $this->emit('render');
+        $this->emit('addCart');
     }
 }

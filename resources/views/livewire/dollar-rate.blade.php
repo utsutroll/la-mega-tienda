@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div wire:loading>
+                <div wire:loading wire:target="update">
                     <div class="loader">
                         <div class="loader__figure"></div>
                         <p class="loader__label">La Mega Tienda Turén</p>
@@ -17,7 +17,7 @@
                         <br><br><br><br><br><br><br>
                     </div>
                 </div>
-                <div wire:loading.remove>
+                <div wire:loading.remove wire:target="update">
                     <div class="form-group">
                         <label for="">Tasa Actual</label>
                         <input type="number" class="form-control" wire:model.defer="priced" placeholder="">

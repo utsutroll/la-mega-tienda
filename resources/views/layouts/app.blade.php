@@ -23,6 +23,9 @@
         <link href="{{asset('assets/node_modules/glider.js-master/glider.min.css')}}" rel="stylesheet" />
         <link href="{{url('dist/pages/ecommerce.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="{{url('dist/css/style-custom.css')}}">
+        <!--Toaster Popup message CSS -->
+        <link href="{{url('/assets/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
+    
 
         <style>
             .notify-m{
@@ -75,20 +78,7 @@
         <script src="{{asset('assets/node_modules/prism/prism.js')}}"></script>
         <script src="{{asset('assets/node_modules/glider.js-master/glider.min.js')}}" type="text/javascript"></script>  
         <script src="{{asset('/dist/js/carrusel-app.js')}}" type="text/javascript"></script>  
-        
-        <script>
-            window.livewire.on('productAdded',()=>{
-
-                $.toast({
-                    heading: 'Notificación',
-                    text: 'El Producto se agregó al carrito con éxito.',
-                    position: 'top-right',
-                    loaderBg:'#ff6849',
-                    icon: 'info',
-                    hideAfter: 3500, 
-                    stack: 6
-                });
-            });
-        </script> 
+        <!-- Popup message jquery -->
+        <script src="{{url('/assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
     </body>
 </html>

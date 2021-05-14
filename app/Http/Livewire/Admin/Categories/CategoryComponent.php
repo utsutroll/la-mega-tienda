@@ -79,7 +79,7 @@ class CategoryComponent extends Component
     }
 
     protected $rules = [
-        'name' => 'required|max:15|unique:categories',   
+        'name' => 'required|max:30|unique:categories',   
     ];
 
     protected $validationAttributes = [

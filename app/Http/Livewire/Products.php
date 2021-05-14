@@ -43,4 +43,30 @@ class Products extends Component
         Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
         $this->emit('addCart');
     }
+
+    public function increaseQuantity($rowId)
+    {
+        $product = Cart::get($rowId);
+        $qty = $product->qty + 1;
+        Cart::update($rowId,$qty);
+    }
+
+    public function decreaseQuantity($rowId)
+    {
+        $product = Cart::get($rowId);
+        $qty = $product->qty - 1;
+        Cart::update($rowId,$qty);
+    }
+
+    public function destroy($rowId)
+    {
+        Cart::remove($rowId);
+    }
+
+    public function destroyAll()
+    {
+        Cart::destroy();
+    }
+
+
 }

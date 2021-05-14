@@ -48,11 +48,13 @@
                                         <p>{{$item->model->details}}</p>
                                     </td>
                                     <td>{{$item->model->price}}$</td>
-                                    <td width="70">
-                                    <input type="number" value="{{$item->qty}}" data-max="120" class="form-comtrol w-20">
+                                    <td width="80" class="flex">
+                                        <a href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')" class="w-5 flex items-center justify-center bg-gray-300 hover:bg-red-600 hover:text-white"><i class="ti-minus"></i></a>    
+                                        <input type="text" value="{{$item->qty}}" disabled data-max="120" pattern="[0-9]" class="form-comtrol w-11 h-5">
+                                        <a href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')" class=" w-5 flex items-center justify-center bg-gray-300 hover:bg-red-600 hover:text-white"><i class="ti-plus"></i></a>
                                     </td>
-                                    <td width="150" align="center" class="font-500">{{number_format(round(($item->qty*$item->model->price),2),2)}}$</td>
-                                    <td align="center"><a href="javascript:void(0)" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
+                                    <td width="150" align="center" class="font-500">{{round(($item->subtotal),2)}}$</td>
+                                    <td align="center"><a href="javascript:void(0)" wire:click.prevent="destroy('{{$item->rowId}}')" class="text-inverse" title="" data-toggle="tooltip" data-original-title="Delete"><i class="ti-trash text-dark"></i></a></td>
                                 </tr>
                                 @endforeach
                                 @else
@@ -76,7 +78,7 @@
                     <h5 class="card-title">Resumen del carrito</h5>
                     <hr>
                     <small>Precio total</small>
-                    <h2>{{Cart::total()}} dólares</h2>
+                    <h2>{{Cart::total()-Cart::tax()}} dólares</h2>
                     <hr>
                     <small>Tasa del día</small>
                     <h4>@foreach ($dollar as $d){{number_format($d->price, 2)}}@endforeach Bs.F</h4>

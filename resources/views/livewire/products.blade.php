@@ -46,19 +46,21 @@
                             <div class="box-border h-32 w-32 p-2 border-2 flex-1">
                                 <img class="w-30 h-30 pt-2" src="{{Storage::url($item->model->image->url)}}" alt="{{$item->model->name}}">
                             </div>
-                            <div class="ml-5 flex-1">
+                            <div class="ml-5 justify-center flex-1">
                                 <p class="text-base font-bold text-gray-900">
                                     {{$item->model->product}}
                                 </p>
-                                <div class="justify-center">
-                                    <input type="number" value="{{$item->qty}}" data-max="120" class="form-comtrol w-20" >
+                                <div class="justify-center flex">
+                                    <a href="#" wire:click.prevent="decreaseQuantity('{{$item->rowId}}')" class="w-5 flex items-center justify-center bg-gray-300 hover:bg-red-600 hover:text-white"><i class="ti-minus"></i></a>    
+                                    <input type="text" value="{{$item->qty}}" disabled data-max="120" pattern="[0-9]" class="form-comtrol w-11">
+                                    <a href="#" wire:click.prevent="increaseQuantity('{{$item->rowId}}')" class=" w-5 flex items-center justify-center bg-gray-300 hover:bg-red-600 hover:text-white"><i class="ti-plus"></i></a>
                                 </div>
                                 <p class="mt-2 text-center text-sm font-bold text-gray-700">
-                                    {{number_format(round(($item->qty*$item->model->price),2),2)}}$
+                                    {{$item->subtotal}}$
                                 </p>
                             </div>
                             <div class="box-border pl-5 py-5 flex-1">
-                                <button type="button" class="">
+                                <button type="button" class="" wire:click.prevent="destroy('{{$item->rowId}}')">
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M6 7C5.447 7 5 7 5 7v13c0 1.104.896 2 2 2h10c1.104 0 2-.896 2-2V7c0 0-.447 0-1 0H6zM16.618 4L15 2 9 2 7.382 4 3 4 3 6 8 6 16 6 21 6 21 4z"></path></svg>
                                 </button>
                             </div>
@@ -73,7 +75,7 @@
                     <div class="px-3 py-5 bg-gray-20 sm:px-4 sm:py-8">
                         <div class="p-3 flex justify-between">
                             <span class="text-gray-800 text-lg font-bold">Total: </span>
-                            <span class="text-gray-800 text-lg font-bold">{{Cart::total()}}$</span>
+                            <span class="text-gray-800 text-lg font-bold">{{Cart::total()-Cart::tax()}}$</span>
                         </div>
                         <div class="p-3 flex justify-between">
                             <span class="text-gray-800 text-lg">Tasa del día:</span>
@@ -85,8 +87,8 @@
                         </div>
                         <div class="mt-2 flex text-md">
                             <a href="{{route('products.shopping-cart')}}" class="flex-1 rounded-lg border border-gray-800 shadow-md p-2 ml-2 text-gray-800 hover:bg-red-600 hover:text-white text-base text-center max-h-10">Ver Carrito</a>
-                            <a href="#" class="flex-1 rounded-lg border border-gray-800 shadow-md p-2 ml-2 text-gray-800 hover:bg-red-600 hover:text-white text-base text-center max-h-10">Pagar</a>
-                            <a href="#" class="flex-1 rounded-lg border border-gray-800 shadow-md p-2 xs:p-1 xs:text-xs ml-2 text-gray-800 hover:bg-red-600 hover:text-white text-base text-center max-h-10">Vaciar Carrito</a>
+                            <a href="javascript:void(0)" class="flex-1 rounded-lg border border-gray-800 shadow-md p-2 ml-2 text-gray-800 hover:bg-red-600 hover:text-white text-base text-center max-h-10">Pagar</a>
+                            <a href="javascript:void(0)" wire:click.prevent="destroyAll()" class="flex-1 rounded-lg border border-gray-800 shadow-md p-2 xs:p-1 xs:text-xs ml-2 text-gray-800 hover:bg-red-600 hover:text-white text-base text-center max-h-10">Vaciar Carrito</a>
                         </div>
                     </div>
                 </div>

@@ -7,19 +7,14 @@
             <div class="col-9 ml-3 input-group">
                 <div class="input-group-prepend">
                     <button type="button" class="btn btn-white dropdown-toggle mr-1 border-secondary border-top-0 border-left-0 border-right-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ti-filter"></i> Filtrar por
+                        <i class="ti-filter"></i>
                     </button>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item disabled">Categorías</div>
-                            @foreach ($categories as $ca)
-                            
-                                <div class="dropdown-item checkbox text-gray-800">
-                                    <label><input type="checkbox" wire:model="category" id="{{$ca->id}}" value="{{$ca->id}}"> {{$ca->name}}</label>
-                                </div>
-                            
-                            @endforeach
-                        </ul>
-                    </div>
+                    <select class="form-control mr-2" wire:model="category">
+                        <option><i class="icon-filter"></i> Filtrar por Categoría</option>
+                        @foreach($categories as $c)
+                            <option value="{{$c->id}}">{{$c->name}}</option>
+                        @endforeach    
+                    </select>
                 </div>
                 <input type="text" id="search_box" wire:model="search" class="form-control" placeholder="Buscar &hellip;" />
             </div>

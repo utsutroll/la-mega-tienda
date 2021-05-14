@@ -14,4 +14,5 @@ class Product_Entry extends Pivot
 
     public $timestamps=false;
 
+
 }

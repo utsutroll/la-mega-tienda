@@ -43,7 +43,7 @@ class ProductController extends Controller
 
         $request->validate([
             'id' => 'required|unique:products,id',   
-            'product' => 'required|unique:products',   
+            'product' => 'required',   
             'category_id' => 'required',  
             'presentation_id' => 'required',    
             'tags' => 'required',    
@@ -110,7 +110,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'id' => "required|unique:products,id,$product->id",   
-            'product' => "required|unique:products,product,$product->id",   
+            'product' => "required",   
             'category_id' => 'required',  
             'presentation_id' => 'required',    
             'tags' => 'required',    

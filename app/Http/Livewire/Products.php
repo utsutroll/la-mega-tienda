@@ -14,7 +14,7 @@ class Products extends Component
     use WithPagination;
 
     public $search = '';
-    public $category = '';
+    public $category;
 
     public function updatingSearch(){
         $this->resetPage();
@@ -31,8 +31,10 @@ class Products extends Component
         
         $categories = Category::all();
         $dollar = Dollar_Rate::all();
-        $products = Product::where('product', 'LIKE', "%{$this->search}%")
+        
+        $products = Product::where('stock', '>=', 1)
                             ->orWhere('category_id', $this->category)
+                            ->orWhere('product', 'LIKE', "%{$this->search}%")
                             ->paginate(30);
 
         return view('livewire.products', compact('categories', 'dollar', 'products'));

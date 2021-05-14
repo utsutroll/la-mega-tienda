@@ -53,8 +53,7 @@ class ProductEntryController extends Controller
     {
         $request->validate([
             'product_id'=>'required',
-            'quantity'=>'required',
-            'price'=>'required'
+            'quantity'=>'required'
         ]);
 
         $continuar = $request->continue;
@@ -68,7 +67,6 @@ class ProductEntryController extends Controller
 
 	    	$product_id=$request->product_id;
 	    	$quantity=$request->quantity;
-	    	$price=$request->price;
 
 	    	$cont = 0;
 
@@ -78,7 +76,6 @@ class ProductEntryController extends Controller
                 $products->product_id=$product_id[$cont];
                 $products->entry_id=$entrada->id;
                 $products->quantity=$quantity[$cont];
-                $products->price=$price[$cont];
                 $products->save();
                 $cont=$cont+1;
 	    	}

@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $table='products';
 
-    protected $primaryKey = 'id'; // or null
+    protected $primaryKey = 'id';  // or null
 
     public $incrementing = false;
 

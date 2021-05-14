@@ -78,18 +78,16 @@
     });
 
     //Alerts Errors
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            toastr.error({
-                heading: 'Notificación',
-                text: '{{$error}}',
-                position: 'top-right',
-                loaderBg:'#ff6849',
-                icon: 'danger',
-                hideAfter: 3500, 
-                stack: 6
-            });  
-        @endforeach
+    @if (session('info'))
+        $.toast({
+            heading: 'Notificación',
+            text: '{{session('info')}}',
+            position: 'top-right',
+            loaderBg:'#ff6849',
+            icon: 'success',
+            hideAfter: 3500, 
+            stack: 6
+          }); 
     @endif
 
     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -103,7 +101,6 @@
             });
         });
         var cont=0;
-        $(".guardar").hide();
         $("#product").change(mostrarValores);
 
         function mostrarValores(){

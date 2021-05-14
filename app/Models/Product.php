@@ -28,11 +28,6 @@ class Product extends Model
         'price'
     ];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function category(){
         return $this->belongsTo(Category::class);
     }

@@ -39,8 +39,11 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        /* dd($request); */
+
         $request->validate([
-            'product' => 'required|max:25|unique:products',   
+            'id' => 'required|unique:products,id',   
+            'product' => 'required|unique:products',   
             'category_id' => 'required',  
             'presentation_id' => 'required',    
             'tags' => 'required',    
@@ -48,10 +51,11 @@ class ProductController extends Controller
             'file' => 'required|image'
 
         ]);
-
+            
         $continuar = $request->continue;
 
         $product = Product::create([
+            'id' => $request->id,   
             'product' => $request->product,   
             'category_id' => $request->category_id,  
             'presentation_id' => $request->presentation_id,        
@@ -105,7 +109,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'product' => "required|max:25|unique:products,product,$product->id",   
+            'id' => "required|unique:products,id,$product->id",   
+            'product' => "required|unique:products,product,$product->id",   
             'category_id' => 'required',  
             'presentation_id' => 'required',    
             'tags' => 'required',    
@@ -114,13 +119,10 @@ class ProductController extends Controller
 
         ]);
 
-        $continuar = $request->continue;
-
         $product->update([
             'product' => $request->product,   
             'category_id' => $request->category_id,  
-            'presentation_id' => $request->presentation_id,        
-            'status_p' => '2',        
+            'presentation_id' => $request->presentation_id,       
             'slug' => Str::slug($request->product),        
             'details' => $request->details,
 

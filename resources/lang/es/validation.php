@@ -147,6 +147,7 @@ return [
     */
 
     'attributes' => [
+        'id' => 'Código',
         'product' => 'Producto',
         'category_id' => 'Categoría',
         'presentation_id' => 'Presentación',

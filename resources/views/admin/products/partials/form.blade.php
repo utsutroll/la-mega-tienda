@@ -2,6 +2,16 @@
     <div class="col-6">
        
         <div class="form-group">
+            {!! Form::label('id', 'Código') !!}
+            {!! Form::number('id', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el código del Producto']) !!} 
+            
+            @error('id')
+                <small class="text-danger">{{$message}}</small>   
+            @enderror
+
+        </div>
+
+        <div class="form-group">
             {!! Form::label('product', 'Nombre') !!}
             {!! Form::text('product', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del Producto']) !!} 
             

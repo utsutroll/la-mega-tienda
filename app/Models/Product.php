@@ -9,9 +9,24 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $table='products';
+
+    protected $primaryKey = 'id'; // or null
+
+    public $incrementing = false;
+
     public $timestamps=false;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'id',
+        'product',
+        'category_id',
+        'presentation_id',
+        'status_p',
+        'slug',
+        'details',
+        'price'
+    ];
 
     public function getRouteKeyName()
     {

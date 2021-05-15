@@ -6,11 +6,9 @@
         <div class="form-material row">
             <div class="col-9 ml-3 input-group">
                 <div class="input-group-prepend">
-                    <button type="button" class="btn btn-white dropdown-toggle mr-1 border-secondary border-top-0 border-left-0 border-right-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ti-filter"></i>
-                    </button>
+                    <span class="mt-2 mr-2"><i class="ti-filter"></i></span>
                     <select class="form-control mr-2" wire:model="category">
-                        <option><i class="icon-filter"></i> Filtrar por Categoría</option>
+                        <option><i class="ti-filter"></i> Filtrar por Categoría</option>
                         @foreach($categories as $c)
                             <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach    
@@ -101,7 +99,7 @@
                 <div class="card shadow-sm p-3">
                     <div class="card-body">    
                         <div class="img-pro">    
-                            <a href="/product-detail/{{$p->id}}"> 
+                            <a href="{{route('products.show', $p)}}"> 
                                 <img loading="lazy" class="img-fluid image" src="{{Storage::url($p->image->url)}}">
                             </a>
                             <ul class="overlay">
@@ -128,7 +126,9 @@
                                 </div>
                                     
                             </span>
-                            <h5 class="card-title m-b-0">{{$p->product}}</h5>
+                            <h1 class="text-base text-white leading-8 font-bold mt-2">
+                                <a class="text-gray-800" href="{{route('products.show', $p)}}">{{$p->product}} ({{$p->presentation->name}} {{$p->presentation->medida}})</a>
+                            </h1>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <x-app-layout>
-    @livewire('shopping-cart')
-    
+
+    @livewire('details-product', ['product' => $product , 'similares' => $similares])
+
     <footer class="footer-main">
         © 2021 La Mega Tienda Turén by Space DigitalSolutions C.A
     </footer>

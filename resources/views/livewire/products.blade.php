@@ -100,7 +100,7 @@
                     <div class="card-body">    
                         <div class="img-pro">    
                             <a href="{{route('products.show', $p)}}"> 
-                                <img loading="lazy" class="img-fluid image" src="{{Storage::url($p->image->url)}}">
+                                <img loading="lazy" class="img-fluid image" src="{{Storage::url($p->image->url)}}" alt="{{$p->product}}" style="width: 200px;height: 225px;">
                             </a>
                             <ul class="overlay">
                                 @foreach ($p->tags as $t)

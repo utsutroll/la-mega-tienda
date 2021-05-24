@@ -23,7 +23,7 @@ class Presentation extends Model
     /**Relacion 1 a muchos **/
 
     public function products(){
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Product::class);
     }
 
 }

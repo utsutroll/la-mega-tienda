@@ -126,9 +126,14 @@
                                 </div>
                                     
                             </span>
-                            <h1 class="text-base text-white leading-8 font-bold mt-2">
-                                <a class="text-gray-800" href="{{route('products.show', $p)}}">{{$p->product}} ({{$p->presentation->name}} {{$p->presentation->medida}})</a>
-                            </h1>
+                            <a class="text-gray-800" href="{{route('products.show', $p)}}">
+                                <h5 class="text-base font-bold mt-2 truncate text-center">
+                                    {{$p->product}} 
+                                </h5>
+                                <h5 class="text-base font-bold text-center">
+                                    ({{$p->presentation->name}} {{$p->presentation->medida}})
+                                </h5>   
+                            </a>
                         </div>
                     </div>
                 </div>

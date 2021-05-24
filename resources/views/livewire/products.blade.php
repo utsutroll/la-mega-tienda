@@ -3,8 +3,8 @@
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="p-3 mb-3 bg-white d-flex justify-content-center">
-        <div class="form-material row">
-            <div class="col-9 ml-3 input-group">
+        <div class="form-material flex">
+            <div class="col-9 ml-3 input-group flex-2">
                 <div class="input-group-prepend">
                     <span class="mt-2 mr-2"><i class="ti-filter"></i></span>
                     <select class="form-control mr-2" wire:model="category">
@@ -16,7 +16,7 @@
                 </div>
                 <input type="text" id="search_box" wire:model="search" class="form-control" placeholder="Buscar &hellip;" />
             </div>
-            <div class="relative inline-block ml-2 col-2" x-data="{ open: false }">
+            <div class="relative inline-block ml-2 col-2 flex-1" x-data="{ open: false }">
                 <button type="button" x-on:click=" open = true " class="text-gray-500 group inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-expanded="false">
                     <svg class="text-gray-400 group-hover:text-gray-500 h-7 w-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:">
                         <path d="M21.822,7.431C21.635,7.161,21.328,7,21,7H7.333L6.179,4.23C5.867,3.482,5.143,3,4.333,3H2v2h2.333l4.744,11.385 C9.232,16.757,9.596,17,10,17h8c0.417,0,0.79-0.259,0.937-0.648l3-8C22.052,8.044,22.009,7.7,21.822,7.431z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle>
@@ -92,8 +92,11 @@
     <!-- Column -->
     @livewire('offer')
     <!-- Column -->
+    @if (count($products) > 0)
     <div class="px-3">
         <div class="row">
+            
+                
             @foreach ($products as $p)
             <div class="col-6 col-md-4 col-sm-6 as-pro-col">
                 <div class="card shadow-sm p-3">
@@ -140,5 +143,19 @@
             </div>
             @endforeach
         </div>
+    </div>
+    @elseif (count($products) == 0 & $search !== '')
+    <div class="my-4 text-center">
+        <h5 class="text-base text-gray-800">No hay Resultado para la Busqueda "{{$search}}"</h5>
+    </div>
+    @else
+    <div class="my-4 text-center">
+        <h5 class="text-base text-gray-800">No hay Productos en Stock</h5>
+    </div>
+    @endif
+    <div class="px-4 py-3 justify-self-end sm:px-6">
+                    
+        {{$products->links()}}
+
     </div> 
 </div>

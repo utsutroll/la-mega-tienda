@@ -14,7 +14,10 @@ class Products extends Component
     use WithPagination;
 
     public $search = '';
+    public $entries = '30';
     public $category;
+
+    protected $paginationTheme = "tailwind";
 
     public function updatingSearch(){
         $this->resetPage();
@@ -22,6 +25,7 @@ class Products extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
+        'entries' => ['except' => '30']
     ];
     
     protected $listener = ['addCart' => 'render'];
@@ -32,10 +36,9 @@ class Products extends Component
         $categories = Category::all();
         $dollar = Dollar_Rate::all();
         
-        $products = Product::where('stock', '>=', 1)
+        $products = Product::Where('product', 'LIKE', "%{$this->search}%")
                             ->orWhere('category_id', $this->category)
-                            ->orWhere('product', 'LIKE', "%{$this->search}%")
-                            ->paginate(30);
+                            ->paginate($this->entries);
 
         return view('livewire.products', compact('categories', 'dollar', 'products'));
     }

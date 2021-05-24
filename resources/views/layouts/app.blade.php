@@ -56,7 +56,12 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader__figure"></div>
+                <p class="loader__label text-danger">La Mega Tienda Turén</p>
+            </div>
+        </div>
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation')
             
@@ -80,5 +85,10 @@
         <script src="{{asset('/dist/js/carrusel-app.js')}}" type="text/javascript"></script>  
         <!-- Popup message jquery -->
         <script src="{{url('/assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
+        <script>
+            $(function () {
+                $(".preloader").fadeOut();
+            });
+        </script>
     </body>
 </html>

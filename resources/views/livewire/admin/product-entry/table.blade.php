@@ -51,14 +51,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {{dd($products->entry)}}
                     @foreach ($products as $product)
-                    @foreach ($product->entry as $p)  
-                      
+                    
                     <tr>
                         <td width="20%">{{ $product->product }} ({{ $product->presentation->name }} {{ $product->presentation->medida }})</td>
-                        <td>{{$p->pivot->quantity}}</td>
-                        <td>{{$p->date}} {{$p->time}}</td>
+                        {{-- <td>{{$product->pivot->quantity}}</td> --}}
+                        <td>{{$product->entry->date}} {{$product->entry->time}}</td>
 
                         
                         {{-- <td width="10px" class="text-nowrap">
@@ -72,7 +71,7 @@
                         <td width="10px" class="text-nowrap">
                             <a 
                                 class="btn btn-secondary btn-sm"
-                                href="{{route('admin.product-entry.show', $p->pivot->id)}}">
+                                href="{{route('admin.product-entry.show', $p)}}">
                                 <i class="ti-eye"></i> 
                                 Ver
                             </a>
@@ -87,7 +86,6 @@
                         </td> --}}
                     </tr>
 
-                    @endforeach
                     @endforeach
                 </tbody>
             </table>

@@ -51,7 +51,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th width="20%" wire:click="order('name')" style="cursor:pointer;">Producto
+                            <th wire:click="order('name')" style="cursor:pointer;">Producto
                                 {{-- Sort --}}
                                 @if ($sort == 'name')
                                     @if ($direcction == 'asc')
@@ -66,19 +66,15 @@
                                 
                             </th>
                             <th>Cantidad</th>
-                            <th>Fecha de Entrada</th>
                             <th class="text-nowrap">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                         @foreach ($products as $product)
-                        @foreach ($product->entry as $p)  
-                          {{dd($p)}}
                         <tr>
-                            <td width="20%">{{ $product->product }} ({{ $product->presentation->name }} {{ $product->presentation->medida }})</td>
-                            <td>{{$p->pivot->quantity}}</td>
-                            <td>{{$p->date}} {{$p->time}}</td>
+                            <td>{{ $product->product }} ({{ $product->presentation->name }} {{ $product->presentation->medida }})</td>
+                            <td>{{$product->stock}}</td>
     
                             
                             {{-- <td width="10px" class="text-nowrap">
@@ -92,7 +88,7 @@
                             <td width="10px" class="text-nowrap">
                                 <a 
                                     class="btn btn-secondary btn-sm"
-                                    href="{{route('admin.product-entry.show', $p->pivot->id)}}">
+                                    href="{{route('admin.product-entry.show', $product)}}">
                                     <i class="ti-eye"></i> 
                                     Ver
                                 </a>
@@ -106,8 +102,6 @@
                                 </button>
                             </td> --}}
                         </tr>
-    
-                        @endforeach
                         @endforeach
                     </tbody>
                 </table>
@@ -115,7 +109,7 @@
         </div>
         <div class="card-footer">
             <div class="float-right">
-                {{$products->onEachSide(5)->links()}}
+                {{$products->links()}}
             </div>
         </div> 
         @elseif (count($products) == 0 & $search !== '')

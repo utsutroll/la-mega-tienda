@@ -36,7 +36,9 @@ class StockComponent extends Component
 
     public function render()
     {
-        $products = Product::all();
+        $products = Product::where('product', 'LIKE', "%{$this->search}%")
+                            ->orderBy($this->sort, $this->direcction)
+                            ->paginate($this->entries);
 
         return view('livewire.admin.product-entry.stock-component', compact('products'));
     }

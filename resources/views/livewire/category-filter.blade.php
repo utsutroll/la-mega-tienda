@@ -111,10 +111,20 @@
     <!-- Column -->
     @livewire('offer')
     <!-- Column -->
-    @if (count($products) > 0)
+    <div class="py-2 my-3 bg-white shadow-md">
+        <h1 class="text-xl uppercase text-center font-bold">{{$category->name}}</h1>
+    </div>
+
+    @if (count($productss) == 0)
+    <div class="my-4 text-center">
+        <h5 class="text-base text-gray-800">No se Encontraron Productos que Correspondan a la Categoría: {{$category->name}}</h5>
+    </div>    
+
+    @elseif(count($productss) >0)
+    
     <div class="px-1 sm:px-2 md:px-3">
         <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-4">  
-            @foreach ($products as $p)
+            @foreach ($productss as $p)
             <div class="">
                 <div class="card shadow-sm p-3">
                     <div class="card-body">    
@@ -161,7 +171,7 @@
             @endforeach
         </div>
     </div>
-    @elseif (count($products) == 0 & $search !== '')
+    @elseif (count($productss) == 0 & $search !== '')
     <div class="my-4 text-center">
         <h5 class="text-base text-gray-800">No hay Resultado para la Busqueda "{{$search}}"</h5>
     </div>
@@ -172,7 +182,7 @@
     @endif
     <div class="px-4 py-3 justify-self-end sm:px-6">
                     
-        {{$products->links()}}
+        {{$productss->links()}}
 
-    </div> 
+    </div>  
 </div>

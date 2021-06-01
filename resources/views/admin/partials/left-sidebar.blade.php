@@ -54,22 +54,22 @@
                 <li class="LiAmacen"> 
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-home"></i><span class="hide-menu">Entradas & Salidas</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li id="liEntry"><a id="AEntry" href="{{route('admin.product-entry.index')}}" class="">Entrada de Producto</a></li>
-                        <li><a href="{{route('admin.product-entry.stock')}}">Stock</a></li>
-                        <li><a href="#">Salida de Producto</a></li>
+                        <li id="liEntry"><a id="AEntry" href="{{route('admin.product-entry.index')}}">Entrada Producto</a></li>
+                        <li id="liStock"><a href="{{route('admin.product-entry.stock')}}">Stock</a></li>
+                        <li><a href="#">Salida Producto</a></li>
                     </ul>
                 </li>
                 <li class="nav-small-cap">--- Actualizar $</li>
                 <li> 
-                    <a class="waves-effect waves-dark" aria-expanded="false" data-toggle="modal" data-target="#modalUpdatePrice">
+                    <a class="waves-effect waves-dark" aria-expanded="false">
                         <i class="fa fa-refresh"></i>
-                        <span class="hide-menu">Precio de Producto</span>
+                        <span class="hide-menu" data-toggle="modal" data-target="#modalUpdatePrice">Precio de Producto</span>
                     </a>
                 </li>
                 <li> 
-                    <a class="waves-effect waves-dark" aria-expanded="false" data-toggle="modal" data-target="#modalUpdatePriceDolar">
+                    <a class="waves-effect waves-dark" aria-expanded="false">
                         <i class="fa fa-refresh"></i>
-                        <span class="hide-menu">Tasa del Dolar</span>
+                        <span class="hide-menu" data-toggle="modal" data-target="#modalUpdatePriceDolar">Tasa del Dolar</span>
                     </a>
                 </li>
                 <li class="nav-small-cap">--- Bancos & Formas de Pago</li>

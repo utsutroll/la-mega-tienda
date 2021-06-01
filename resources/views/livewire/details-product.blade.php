@@ -73,14 +73,6 @@
                 </div>
             </div>
         </div>
-        <div class="flex-1 align-self-center text-right">
-            <div class="d-flex justify-content-end align-items-center">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                    <li class="breadcrumb-item active">Detalle del Producto</li>
-                </ol>
-            </div>
-        </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Bread crumb and right sidebar toggle -->
@@ -122,7 +114,7 @@
                                             <td>Etiquetas</td>
                                             <td> 
                                                 @foreach ($product->tags as $t)
-                                                    <span class="badge badge-info">{{$t->name}}</span>    
+                                                <a href="{{route('products.tag', $t)}}" class="badge badge-info"><span>{{$t->name}}</span></a>     
                                                 @endforeach
                                             </td>
                                         </tr>

@@ -22,8 +22,8 @@
     <script type="text/javascript">
 
     $('#liAlmacen').addClass("active");
-    $('#liEntry').addClass("active");
-    $('#AEntry').addClass("active");
+    $('#liStock').addClass("active");
+    $('#AStock').addClass("active");
 
     </script>
 @endpush    

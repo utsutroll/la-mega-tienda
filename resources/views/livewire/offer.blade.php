@@ -1,4 +1,4 @@
-<div class="col-12 mb-4">
+<div class="mb-4">
   <div class="carousel__contenedor">
     <button aria-label="Anterior" class="carousel__anterior">
       <i class="fa fa-chevron-left fa-2x"></i>

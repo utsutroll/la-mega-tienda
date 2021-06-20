@@ -56,28 +56,41 @@
                     <ul aria-expanded="false" class="collapse">
                         <li id="liEntry"><a id="AEntry" href="{{route('admin.product-entry.index')}}">Entrada Producto</a></li>
                         <li id="liStock"><a href="{{route('admin.product-entry.stock')}}">Stock</a></li>
-                        <li><a href="#">Salida Producto</a></li>
+                        <li id="liOutput"><a href="{{route('admin.product-output.index')}}">Salida Producto</a></li>
                     </ul>
                 </li>
+                <li class="nav-small-cap">--- Promocional</li>
+                <li id="LiSlider"> 
+                    <a class="waves-effect waves-dark" href="{{route('admin.slider.index')}}" aria-expanded="false">
+                        <i class="ti-image"></i>
+                        <span class="hide-menu">Slider</span>
+                    </a>
+                </li> 
+                <li id="LiPartner">    
+                    <a class="waves-effect waves-dark" href="{{route('admin.business-partners.index')}}" aria-expanded="false">
+                        <i class="icon-people"></i>
+                        <span class="hide-menu">Aliado Comercial</span>
+                    </a>
+                </li>                
                 <li class="nav-small-cap">--- Actualizar $</li>
                 <li> 
-                    <a class="waves-effect waves-dark" aria-expanded="false">
+                    <a class="waves-effect waves-dark" aria-expanded="false" href="javascript:void(0)">
                         <i class="fa fa-refresh"></i>
                         <span class="hide-menu" data-toggle="modal" data-target="#modalUpdatePrice">Precio de Producto</span>
                     </a>
                 </li>
                 <li> 
-                    <a class="waves-effect waves-dark" aria-expanded="false">
+                    <a class="waves-effect waves-dark" aria-expanded="false" href="javascript:void(0)"> 
                         <i class="fa fa-refresh"></i>
                         <span class="hide-menu" data-toggle="modal" data-target="#modalUpdatePriceDolar">Tasa del Dolar</span>
                     </a>
                 </li>
                 <li class="nav-small-cap">--- Bancos & Formas de Pago</li>
-                <li id="LiBank"> 
+                <li id="LiBanks"> 
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa fa-bank"></i><span class="hide-menu">Bancos & Billeteras</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Cuentas Bancarias</a></li>
-                        <li><a href="#">Billeteras Electronícas</a></li>
+                        <li><a href=" {{ route('admin.banks.index') }}">Cuentas Bancarias</a></li>
+                        <li><a href="{{ route('admin.wallets.index') }}">Billeteras Electronícas</a></li>
                     </ul>
                 </li>
                 <li class="nav-small-cap">--- Cotrol de Usuarios</li>

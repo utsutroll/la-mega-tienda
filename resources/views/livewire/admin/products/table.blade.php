@@ -44,9 +44,9 @@
                                 <i class="fa fa-sort float-right mt-1"></i>
                             @endif
                         </th>
-                        <th width="20%" wire:click="order('name')" style="cursor:pointer;">Producto
+                        <th width="20%" wire:click="order('product')" style="cursor:pointer;">Producto
                             {{-- Sort --}}
-                            @if ($sort == 'name')
+                            @if ($sort == 'product')
                                 @if ($direcction == 'asc')
                                     <i class="fa fa-sort-alpha-asc float-right mt-1"></i>    
                                 @else

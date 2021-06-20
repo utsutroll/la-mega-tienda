@@ -157,5 +157,7 @@ return [
         'product_id' => 'Producto',
         'quantity' => 'Cantidad',
         'price' => 'Precio',
+        'partner' => 'Aliado Comercial',
+        'link' => 'Enlace'
     ],
 ];

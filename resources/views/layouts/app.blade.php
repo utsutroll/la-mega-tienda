@@ -62,7 +62,7 @@
                 <p class="loader__label text-danger">La Mega Tienda Turén</p>
             </div>
         </div>
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 m-auto">
             @livewire('navigation')
             
             <!-- Page Content -->

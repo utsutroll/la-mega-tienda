@@ -46,6 +46,10 @@ class Product extends Model
         return $this->belongsToMany(Entry::class)->using(Product_Entry::class)->withPivot('id','quantity');
     }
 
+    public function output(){
+        return $this->belongsToMany(Output::class)->using(Output_Product::class)->withPivot('id','quantity', 'observation');
+    }
+
     //relacion 1 a 1 polimorfica
 
     public function image(){

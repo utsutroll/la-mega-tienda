@@ -14,21 +14,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductEntryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         return view('admin.product-entry.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $carbon = new \Carbon\Carbon();
@@ -43,12 +34,6 @@ class ProductEntryController extends Controller
         return view('admin.product-entry.create', compact('product', 'date'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -89,17 +74,14 @@ class ProductEntryController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $product = Product_Entry::join('entries as e','e.id','=','entry_id')
                                     ->join('products as p','p.id','=','product_id')
                                     ->join('images as i','i.imageable_id','=','p.id')
+                                    ->join('presentations as pre','pre.id','=','p.presentation_id')
+                                    ->join('categories as ca','ca.id','=','p.category_id')
+                                    ->select('p.*', 'e.*', 'entry_product.*', 'i.*','pre.name as present', 'pre.medida', 'ca.name as cat')
                                     ->where('entry_product.id', $id)
                                     ->get();
 

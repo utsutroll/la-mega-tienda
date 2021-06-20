@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 class PresentationComponent extends Component
 {
     /* Variables */
-
     public $search = '';
     public $entries = '5';
     public $sort = 'id';

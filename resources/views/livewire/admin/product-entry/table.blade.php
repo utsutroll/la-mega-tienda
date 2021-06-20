@@ -6,8 +6,6 @@
             <div class="dataTables_length" id="myTable_length">
                 <label>Mostrar 
                     <select wire:model="entries"  class="">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
                         <option value="25">25</option>
                         <option value="50">50</option>
                         <option value="100">100</option>
@@ -31,9 +29,9 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th width="20%" wire:click="order('name')" style="cursor:pointer;">Producto
+                        <th width="20%" wire:click="order('product')" style="cursor:pointer;">Producto
                             {{-- Sort --}}
-                            @if ($sort == 'name')
+                            @if ($sort == 'product')
                                 @if ($direcction == 'asc')
                                     <i class="fa fa-sort-alpha-asc float-right mt-1"></i>    
                                 @else
@@ -51,13 +49,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{dd($products->entry)}}
                     @foreach ($products as $product)
-                    
+                    @foreach ($product->entry as $pro)
                     <tr>
                         <td width="20%">{{ $product->product }} ({{ $product->presentation->name }} {{ $product->presentation->medida }})</td>
-                        {{-- <td>{{$product->pivot->quantity}}</td> --}}
-                        <td>{{$product->entry->date}} {{$product->entry->time}}</td>
+                        <td>{{$pro->pivot->quantity}}</td>
+                        <td>{{$pro->date}} {{$pro->time}}</td>
 
                         
                         {{-- <td width="10px" class="text-nowrap">
@@ -71,7 +68,7 @@
                         <td width="10px" class="text-nowrap">
                             <a 
                                 class="btn btn-secondary btn-sm"
-                                href="{{route('admin.product-entry.show', $p)}}">
+                                href="{{route('admin.product-entry.show', $pro->pivot->id)}}">
                                 <i class="ti-eye"></i> 
                                 Ver
                             </a>
@@ -87,13 +84,14 @@
                     </tr>
 
                     @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
     <div class="card-footer">
         <div class="float-right">
-            {{$products->onEachSide(5)->links()}}
+            {{$products->links()}}
         </div>
     </div> 
     @elseif (count($products) == 0 & $search !== '')
@@ -108,8 +106,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Producto</th>
-                    <th>Presentación</th>
-                    <th>Imagen</th>
+                    <th>Cantidad</th>
+                    <th>Fecha de Entrada</th>
                     <th colspan="2" class="text-nowrap">Opciones</th>
                 </tr>
             </thead>

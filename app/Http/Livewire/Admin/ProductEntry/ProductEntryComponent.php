@@ -10,8 +10,8 @@ class ProductEntryComponent extends Component
 {
     /* Variables */
     public $search = '';
-    public $entries = '5';
-    public $sort = 'id';
+    public $entries = '25';
+    public $sort = 'product';
     public $direcction = 'desc';
     public $status_p;
     /* End Variables */
@@ -28,7 +28,7 @@ class ProductEntryComponent extends Component
 
     protected $queryString = [
         'search' => ['except' => ''],
-        'entries' => ['except' => '5']
+        'entries' => ['except' => '25']
     ];
 
 

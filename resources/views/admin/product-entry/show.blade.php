@@ -65,19 +65,18 @@
                                             <td width="390">Costo Total</td>
                                             <td> {{$product[0]->quantity*$product[0]->price}}$</td>
                                         </tr>
-                                        
-                                        {{-- <tr>
+                                        <tr>
                                             <td width="390">Presentación</td>
-                                            <td> {{$product[0]->presentation->name}} {{$product[0]->presentation->medida}}</td>
+                                            <td> {{$product[0]->present}} {{$product[0]->medida}}</td>
                                         </tr>
                                         <tr>
                                             <td>Categoría</td>
-                                            <td> {{$product[0]->name}} </td>
+                                            <td> {{$product[0]->cat}} </td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>Etiquetas</td>
                                             <td> 
-                                                @foreach ($product->products->tags as $t)
+                                                @foreach ($tags= App\Models\Product_tag::where('product_id', $product[0]->product_id)->get() as $t)
                                                     <span class="badge badge-info">{{$t->name}}</span>    
                                                 @endforeach
                                             </td>

@@ -112,10 +112,10 @@
     @livewire('offer')
     <!-- Column -->
     @if (count($products) > 0)
-    <div class="px-1 sm:px-2 md:px-3">
-        <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-4">  
+    
+        <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-5 lg:gap-4 p-2">  
             @foreach ($products as $p)
-            <div class="">
+            
                 <div class="card shadow-sm p-3">
                     <div class="card-body">    
                         <div class="img-pro">    
@@ -157,10 +157,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
             @endforeach
         </div>
-    </div>
+    
     @elseif (count($products) == 0 & $search !== '')
     <div class="my-4 text-center">
         <h5 class="text-base text-gray-800">No hay Resultado para la Busqueda "{{$search}}"</h5>

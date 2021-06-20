@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business_Partner;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Slider;
 use App\Models\Tag;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
@@ -12,7 +14,10 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('products.index');
+        $sliders = Slider::all();
+        $business_partners = Business_Partner::all();
+
+        return view('products.index', compact('sliders', 'business_partners'));
     }
 
     public function show(Product $product)
